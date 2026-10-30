@@ -1,44 +1,11 @@
 import type { Metadata } from "next";
-import { Download, FileText, ArrowUpRight, Briefcase, GraduationCap } from "lucide-react";
-import { personalInfo } from "@/lib/data";
+import { Download, FileText, ArrowUpRight, Briefcase, GraduationCap, Award } from "lucide-react";
+import { personalInfo, experience, education } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Resume",
-  description: "Professional journey, technical experience, and education of Priyanshu.",
+  description: `Professional journey, technical experience, and education of ${personalInfo.name}.`,
 };
-
-const experience = [
-  {
-    role: "Full Stack Engineer & ML Contributor",
-    company: "Sankalan Technical Team",
-    date: "2025 – Present",
-    bullets: [
-      "Architected high-throughput registration engine handling 3,000+ live participants across 20+ simultaneous fest competitions.",
-      "Implemented Redis caching and Server-Sent Events to power sub-second real-time hackathon leaderboards.",
-      "Integrated automated payment reconciliation webhooks with idempotent database transactions, ensuring zero revenue loss.",
-    ],
-  },
-  {
-    role: "Intelligent Systems Developer",
-    company: "Independent Research & Engineering",
-    date: "2024 – 2025",
-    bullets: [
-      "Engineered Credit Risk Platform training gradient-boosted XGBoost classifiers on 500k+ records with 92% AUC-ROC score.",
-      "Built Movie Mind Reader semantic discovery engine using Sentence-BERT and FAISS vector indexes with <5ms query lookup.",
-      "Architected AuditLens RAG pipeline extracting structured GAAP audit matrices from multi-hundred-page SEC 10-K documents.",
-    ],
-  },
-  {
-    role: "Software Engineering Intern",
-    company: "Systems & Infrastructure Division",
-    date: "2024",
-    bullets: [
-      "Developed high-performance REST APIs using FastAPI and Node.js, reducing p99 latency under concurrency.",
-      "Containerized microservices using Docker and orchestrated multi-container development workflows with Docker Compose.",
-      "Designed normalized PostgreSQL schemas with indexing optimizations for high write-throughput workloads.",
-    ],
-  },
-];
 
 export default function ResumePage() {
   return (
@@ -68,15 +35,15 @@ export default function ResumePage() {
 
           <div className="flex gap-3 flex-wrap">
             <a
-              href="/resume.pdf"
-              download
+              href="/portfolio/resume.pdf"
+              download="Priyanshu_Gupta_Resume.pdf"
               className="btn-primary !text-xs !py-2.5 !px-5 font-mono"
             >
               <Download size={14} />
               Download PDF
             </a>
             <a
-              href="/resume.pdf"
+              href="/portfolio/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary !text-xs !py-2.5 !px-5 font-mono"
@@ -87,14 +54,26 @@ export default function ResumePage() {
           </div>
         </div>
 
-        {/* Notice Card */}
-        <div className="glass-card p-5 mb-10 flex items-center gap-4 border-l-2 border-emerald-500 bg-emerald-500/[0.02]">
-          <FileText size={22} className="text-emerald-400 shrink-0" />
-          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-            A comprehensive PDF copy is available for offline review. Add your updated{" "}
-            <span className="text-white font-mono bg-white/[0.06] px-1.5 py-0.5 rounded">resume.pdf</span> to{" "}
-            <span className="text-white font-mono bg-white/[0.06] px-1.5 py-0.5 rounded">public/</span> to connect direct downloads.
-          </p>
+        {/* Live Resume Card */}
+        <div className="glass-card p-6 mb-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-l-2 border-emerald-500 bg-emerald-500/[0.03]">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 shrink-0">
+              <FileText size={22} />
+            </div>
+            <div>
+              <h3 className="text-white font-bold text-sm sm:text-base">Priyanshu_Gupta_Resume.pdf</h3>
+              <p className="text-xs text-zinc-400 font-mono mt-0.5">
+                Data Science & AI/ML Engineer • University of Delhi
+              </p>
+            </div>
+          </div>
+          <a
+            href="/portfolio/resume.pdf"
+            download="Priyanshu_Gupta_Resume.pdf"
+            className="btn-primary !text-xs !py-2 !px-4 font-mono w-full sm:w-auto"
+          >
+            <Download size={13} /> Click to Download
+          </a>
         </div>
 
         {/* Experience Timeline */}
@@ -102,7 +81,7 @@ export default function ResumePage() {
           <div className="flex items-center gap-2 mb-8">
             <Briefcase size={18} className="text-emerald-400" />
             <h2 className="font-mono text-xs uppercase tracking-wider text-emerald-400">
-              // Professional Experience
+              // Professional Experience & Leadership
             </h2>
           </div>
 
@@ -156,28 +135,49 @@ export default function ResumePage() {
         </div>
 
         {/* Education Section */}
-        <div className="glass-card p-8">
+        <div className="glass-card p-8 mb-8">
           <div className="flex items-center gap-2 mb-6">
             <GraduationCap size={20} className="text-emerald-400" />
             <h2 className="font-mono text-xs uppercase tracking-wider text-emerald-400">
-              // Academic Credentials
+              // Education
             </h2>
           </div>
-          <div className="flex items-start justify-between gap-4 flex-wrap">
-            <div>
-              <h3 className="font-bold text-base md:text-lg text-white">
-                Bachelor of Technology in Computer Science & Engineering
-              </h3>
-              <p className="font-mono text-xs sm:text-sm text-emerald-400 mt-1">
-                Specialization in Artificial Intelligence & Machine Learning
-              </p>
-              <p className="text-xs text-zinc-400 mt-2">
-                Focused coursework: Advanced Data Structures, Cloud Computing, High Performance Computing, Machine Learning, Operating Systems.
-              </p>
-            </div>
-            <span className="font-mono text-xs text-zinc-400 bg-white/[0.04] border border-white/[0.08] px-3 py-1.5 rounded-md whitespace-nowrap">
-              2022 – 2026
-            </span>
+          <div className="space-y-6">
+            {education.map((edu, idx) => (
+              <div key={idx} className="flex items-start justify-between gap-4 flex-wrap pb-6 border-b border-white/[0.06] last:border-b-0 last:pb-0">
+                <div>
+                  <h3 className="font-bold text-base md:text-lg text-white">
+                    {edu.degree}
+                  </h3>
+                  <p className="font-mono text-xs sm:text-sm text-emerald-400 mt-1">
+                    {edu.institution}
+                  </p>
+                  <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                    {edu.details}
+                  </p>
+                </div>
+                <span className="font-mono text-xs text-zinc-400 bg-white/[0.04] border border-white/[0.08] px-3 py-1.5 rounded-md whitespace-nowrap">
+                  {edu.date}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Extracurriculars & Interests */}
+        <div className="glass-card p-8">
+          <div className="flex items-center gap-2 mb-4">
+            <Award size={18} className="text-emerald-400" />
+            <h2 className="font-mono text-xs uppercase tracking-wider text-emerald-400">
+              // Interests & Sports
+            </h2>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {["Cricket", "Football", "Swimming", "Badminton"].map((interest) => (
+              <span key={interest} className="tag-badge !text-xs !py-1 !px-3">
+                {interest}
+              </span>
+            ))}
           </div>
         </div>
       </div>

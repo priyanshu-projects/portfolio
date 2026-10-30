@@ -1,34 +1,46 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Mail, MapPin, GraduationCap, Code2, ArrowUpRight, Terminal } from "lucide-react";
-import { personalInfo } from "@/lib/data";
+import { Mail, MapPin, GraduationCap, Code2, ArrowUpRight, Terminal, Phone } from "lucide-react";
+import { personalInfo, education } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Priyanshu — Intelligent Systems Architect, Full Stack Engineer, and machine learning practitioner.",
+    `Learn about ${personalInfo.name} — Data Scientist, AI/ML Engineer, and MSc Computer Science scholar at University of Delhi.`,
 };
 
 const technicalSkills = [
   {
     category: "Languages",
-    items: ["Python", "TypeScript", "JavaScript", "C++", "SQL", "Bash"],
+    items: ["Python", "SQL"],
   },
   {
-    category: "Frontend",
-    items: ["React", "Next.js (App Router)", "Tailwind CSS", "Framer Motion", "HTML5/CSS3"],
+    category: "Machine Learning",
+    items: [
+      "Regression",
+      "Classification",
+      "Random Forest",
+      "KMeans Clustering",
+      "Ensemble Learning",
+      "XGBoost",
+      "Recommender Systems (BERT4Rec, SVD)",
+    ],
   },
   {
-    category: "Backend & Systems",
-    items: ["FastAPI", "Node.js", "Express", "RESTful APIs", "WebSockets", "Server-Sent Events"],
+    category: "Data Science",
+    items: ["Pandas", "NumPy", "Scikit-learn", "Data Visualization", "Matplotlib", "Seaborn"],
   },
   {
-    category: "AI & ML",
-    items: ["PyTorch", "scikit-learn", "XGBoost", "Sentence-BERT", "FAISS", "LangChain", "RAG"],
+    category: "GenAI & NLP",
+    items: ["RAG", "LLMs", "Prompt Engineering", "Gemini", "GPT", "FinBERT", "spaCy", "FAISS"],
   },
   {
-    category: "Databases & Cloud",
-    items: ["PostgreSQL", "MongoDB", "Redis", "Docker", "AWS", "Prisma ORM", "Linux"],
+    category: "MLOps & Deploy",
+    items: ["MLflow", "GitHub Actions", "Docker", "FastAPI", "Streamlit", "Pandera", "Evidently AI"],
+  },
+  {
+    category: "Cloud & Tools",
+    items: ["AWS (EC2, S3)", "Azure Container Apps", "Git", "Jupyter", "VS Code", "Linux"],
   },
 ];
 
@@ -53,7 +65,7 @@ export default function AboutPage() {
             About <span className="text-gradient">Me</span>
           </h1>
           <p className="text-zinc-400 text-base md:text-lg max-w-2xl leading-relaxed">
-            Systems architect and full stack engineer focused on building resilient software, scalable data platforms, and applied machine learning systems.
+            Data Scientist & AI/ML Engineer pursuing MSc in Computer Science at University of Delhi, engineering end-to-end Machine Learning, Sequential Recommenders, and LLM-driven auditing architectures.
           </p>
         </div>
 
@@ -62,24 +74,25 @@ export default function AboutPage() {
           {/* Bio Column */}
           <div className="md:col-span-2 space-y-5 text-zinc-300 leading-relaxed text-sm sm:text-base">
             <p>
-              Hello! I&apos;m <span className="text-white font-semibold">{personalInfo.name}</span> — an
-              Intelligent Systems Architect and Full Stack Engineer based in{" "}
-              <span className="text-white font-semibold">India</span>. I specialize in turning high-complexity engineering challenges into intuitive, high-performance software.
+              Hello! I&apos;m <span className="text-white font-semibold">{personalInfo.name}</span> — a{" "}
+              <span className="text-emerald-400 font-semibold">{personalInfo.role}</span> currently pursuing my
+              MSc. in Computer Science from the{" "}
+              <span className="text-white font-semibold">Department of Computer Science, University of Delhi</span>.
             </p>
             <p>
-              My focus spans predictive machine learning engines, contextual semantic retrieval (RAG), and production full-stack systems. Whether it is fine-tuning sentence transformers for sub-5ms vector queries or optimizing PostgreSQL query plans for heavy workloads, I value deterministic reliability, clean abstraction boundaries, and elegant UX.
+              My expertise covers deep learning sequential recommenders (BERT4Rec trained on 32M records with PyTorch), automated MLOps pipelines (MLflow, Evidently AI, Pandera, GitHub Actions CI/CD), and enterprise RAG systems over regulatory SEC 10-K financial filings.
             </p>
             <p>
-              When I&apos;m not architecting backends or training models, I explore distributed consensus algorithms, financial technology, and modern web frameworks.
+              I serve as the <span className="text-white font-semibold">President of the Delhi University Computer Science Society (DUCSS)</span>, where I spearheaded Sankalan 2026, secured ₹3 lakh in corporate sponsorships, and led academic technical workshops on Python and modern development.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-3 font-mono text-xs text-zinc-400">
+            <div className="flex flex-col sm:flex-row gap-4 pt-3 font-mono text-xs text-zinc-400 flex-wrap">
               <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-emerald-400" />
+                <MapPin size={14} className="text-emerald-400 shrink-0" />
                 <span>{personalInfo.location}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail size={14} className="text-emerald-400" />
+                <Mail size={14} className="text-emerald-400 shrink-0" />
                 <a
                   href={`mailto:${personalInfo.email}`}
                   className="hover:text-emerald-400 transition-colors"
@@ -87,16 +100,20 @@ export default function AboutPage() {
                   {personalInfo.email}
                 </a>
               </div>
+              <div className="flex items-center gap-2">
+                <Phone size={14} className="text-emerald-400 shrink-0" />
+                <span>{personalInfo.phone}</span>
+              </div>
             </div>
           </div>
 
           {/* Quick Metrics Cards */}
           <div className="grid grid-cols-2 md:grid-cols-1 gap-4">
             {[
-              { val: "4", label: "Flagship Systems Shipped" },
-              { val: "99.9%", label: "Peak Uptime Mindset" },
-              { val: "<30ms", label: "p99 API Latency Standard" },
-              { val: "AI/ML", label: "Applied Intelligence" },
+              { val: "32M", label: "Ratings Trained (BERT4Rec)" },
+              { val: "2,000+", label: "Meta & OpenAI Evaluated" },
+              { val: "₹3L", label: "Sponsorship Secured" },
+              { val: "MSc CS", label: "University of Delhi" },
             ].map((stat) => (
               <div key={stat.label} className="glass-card p-4 text-center">
                 <div className="font-mono text-xl sm:text-2xl font-black text-emerald-400 glow-text">
@@ -136,7 +153,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Education */}
+        {/* Education Section */}
         <div className="glass-card p-8 mb-10">
           <div className="flex items-center gap-3 mb-6">
             <GraduationCap size={20} className="text-emerald-400" />
@@ -144,21 +161,25 @@ export default function AboutPage() {
               // Academic Foundation
             </h2>
           </div>
-          <div className="flex items-start justify-between gap-4 flex-wrap">
-            <div>
-              <h3 className="font-bold text-lg text-white">
-                Bachelor of Technology in Computer Science & Engineering
-              </h3>
-              <p className="text-emerald-400 font-mono text-xs mt-1">
-                Specialization in Artificial Intelligence & Machine Learning
-              </p>
-              <p className="text-xs text-zinc-400 mt-1">
-                Core Coursework: Data Structures & Algorithms, Distributed Systems, Database Management Systems, Neural Networks.
-              </p>
-            </div>
-            <span className="font-mono text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-md whitespace-nowrap">
-              2022 – 2026
-            </span>
+          <div className="space-y-6">
+            {education.map((edu, idx) => (
+              <div key={idx} className="flex items-start justify-between gap-4 flex-wrap pb-6 border-b border-white/[0.06] last:border-b-0 last:pb-0">
+                <div>
+                  <h3 className="font-bold text-base md:text-lg text-white">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-emerald-400 font-mono text-xs mt-1">
+                    {edu.institution}
+                  </p>
+                  <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                    {edu.details}
+                  </p>
+                </div>
+                <span className="font-mono text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-md whitespace-nowrap">
+                  {edu.date}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -167,7 +188,7 @@ export default function AboutPage() {
           <div className="flex items-center gap-3">
             <Terminal size={20} className="text-emerald-400 shrink-0" />
             <span className="text-sm text-zinc-300">
-              Interested in collaborating or discussing system architecture?
+              Interested in collaborating or discussing AI/ML systems?
             </span>
           </div>
           <div className="flex gap-3 w-full sm:w-auto">

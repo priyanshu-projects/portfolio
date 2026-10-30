@@ -216,8 +216,12 @@ export default function ContactPage() {
                   <span>{personalInfo.location}</span>
                 </div>
                 <div className="flex items-center gap-2">
+                  <Mail size={14} className="text-emerald-400 shrink-0" />
+                  <span>{personalInfo.email}</span>
+                </div>
+                <div className="flex items-center gap-2">
                   <Clock size={14} className="text-emerald-400 shrink-0" />
-                  <span>Response time: &lt; 24 hours</span>
+                  <span>Phone: {personalInfo.phone}</span>
                 </div>
               </div>
             </div>
