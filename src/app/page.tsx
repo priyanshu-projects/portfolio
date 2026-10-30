@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ChevronDown, Mail, ArrowUpRight, Cpu, Layers, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown, Mail, ArrowUpRight, Cpu, Layers, ShieldCheck, Sparkles, Download } from "lucide-react";
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/Icons";
 import { projects, skills, personalInfo } from "@/lib/data";
 
@@ -29,18 +29,27 @@ export default function HomePage() {
           </p>
 
           {/* Action buttons with spring lift & glow */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-[revealUp_0.6s_0.5s_both_cubic-bezier(0.16,1,0.3,1)]">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center animate-[revealUp_0.6s_0.5s_both_cubic-bezier(0.16,1,0.3,1)] flex-wrap">
             <Link
               href="/projects"
               className="btn-primary w-full sm:w-auto font-mono text-sm tracking-wide"
             >
               Explore Projects <ArrowRight size={16} />
             </Link>
+            <a
+              href={personalInfo.resumeUrl}
+              download="Priyanshu_Gupta_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary w-full sm:w-auto font-mono text-sm tracking-wide"
+            >
+              <Download size={15} /> Download CV
+            </a>
             <Link
               href="/contact"
               className="btn-secondary w-full sm:w-auto font-mono text-sm tracking-wide"
             >
-              Get in Touch <ArrowUpRight size={15} />
+              Contact <ArrowUpRight size={15} />
             </Link>
           </div>
 

@@ -35,7 +35,7 @@ export default function ResumePage() {
 
           <div className="flex gap-3 flex-wrap">
             <a
-              href="/portfolio/resume.pdf"
+              href={personalInfo.resumeUrl}
               download="Priyanshu_Gupta_Resume.pdf"
               className="btn-primary !text-xs !py-2.5 !px-5 font-mono"
             >
@@ -43,7 +43,7 @@ export default function ResumePage() {
               Download PDF
             </a>
             <a
-              href="/portfolio/resume.pdf"
+              href={personalInfo.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary !text-xs !py-2.5 !px-5 font-mono"
@@ -68,7 +68,7 @@ export default function ResumePage() {
             </div>
           </div>
           <a
-            href="/portfolio/resume.pdf"
+            href={personalInfo.resumeUrl}
             download="Priyanshu_Gupta_Resume.pdf"
             className="btn-primary !text-xs !py-2 !px-4 font-mono w-full sm:w-auto"
           >

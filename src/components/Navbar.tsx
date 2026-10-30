@@ -71,12 +71,15 @@ export default function Navbar() {
 
           {/* Actions: Resume & Contact (styled as interactive pill buttons) */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="/resume"
+            <a
+              href={personalInfo.resumeUrl}
+              download="Priyanshu_Gupta_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary !py-2 !px-4 !text-xs font-mono tracking-wide"
             >
               Resume
-            </Link>
+            </a>
             <Link
               href="/contact"
               className="btn-primary !py-2 !px-4 !text-xs font-mono tracking-wide"
@@ -127,15 +130,18 @@ export default function Navbar() {
         </nav>
 
         <div className="pt-3 border-t border-white/[0.08] flex gap-3">
-          <Link
-            href="/resume"
-            className="btn-secondary flex-1 !py-2.5 !text-xs font-mono"
+          <a
+            href={personalInfo.resumeUrl}
+            download="Priyanshu_Gupta_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary flex-1 !py-2.5 !text-xs font-mono text-center"
           >
-            Resume
-          </Link>
+            Download Resume
+          </a>
           <Link
             href="/contact"
-            className="btn-primary flex-1 !py-2.5 !text-xs font-mono"
+            className="btn-primary flex-1 !py-2.5 !text-xs font-mono text-center"
           >
             Contact
           </Link>
