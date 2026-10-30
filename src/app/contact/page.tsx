@@ -199,18 +199,12 @@ export default function ContactPage() {
 
           {/* Quick Info & Socials Sidebar */}
           <div className="md:col-span-2 space-y-6">
-            {/* Status card */}
+            {/* Direct contact card */}
             <div className="glass-card p-6 border-l-2 border-emerald-500">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="font-mono text-xs uppercase tracking-wider text-emerald-400 font-semibold">
-                  Current Status
-                </span>
-              </div>
-              <p className="text-sm font-medium text-white mb-3">
-                {personalInfo.status}
-              </p>
-              <div className="space-y-2 pt-2 border-t border-white/[0.06] text-xs text-zinc-400">
+              <h3 className="font-mono text-xs uppercase tracking-wider text-emerald-400 font-semibold mb-4">
+                // Direct Coordinates
+              </h3>
+              <div className="space-y-3 text-xs text-zinc-400">
                 <div className="flex items-center gap-2">
                   <MapPin size={14} className="text-emerald-400 shrink-0" />
                   <span>{personalInfo.location}</span>

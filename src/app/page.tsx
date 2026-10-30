@@ -9,11 +9,6 @@ export default function HomePage() {
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-[calc(var(--nav-h)+20px)] pb-16">
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          {/* Eyebrow badge (inspired by rajan-kumar-yadav.vercel.app) */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono text-xs mb-6 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-emerald-500/40 hover:bg-emerald-500/15 animate-[revealUp_0.6s_0.1s_both_cubic-bezier(0.16,1,0.3,1)]">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]" />
-            <span className="tracking-wider uppercase font-semibold">{personalInfo.status}</span>
-          </div>
 
           <p className="font-mono text-emerald-400 text-sm md:text-base mb-3 animate-[revealUp_0.6s_0.2s_both_cubic-bezier(0.16,1,0.3,1)]">
             &gt; Hello, I am {personalInfo.name}
