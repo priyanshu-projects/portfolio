@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Mail, Check, Copy, Send, Sparkles, MapPin, Clock, ArrowUpRight } from "lucide-react";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/Icons";
+import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { personalInfo } from "@/lib/data";
 
 export default function ContactPage() {
@@ -258,18 +258,7 @@ export default function ContactPage() {
                   <ArrowUpRight size={14} className="text-zinc-500 group-hover:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
 
-                <a
-                  href={personalInfo.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-lg bg-white/[0.02] border border-white/[0.06] hover:border-emerald-500/40 hover:bg-emerald-500/5 text-zinc-300 hover:text-white transition-all group"
-                >
-                  <div className="flex items-center gap-3">
-                    <TwitterIcon size={18} className="text-zinc-400 group-hover:text-emerald-400" />
-                    <span className="text-sm font-medium">Twitter / X</span>
-                  </div>
-                  <ArrowUpRight size={14} className="text-zinc-500 group-hover:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
+
               </div>
             </div>
           </div>

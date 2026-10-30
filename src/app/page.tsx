@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Mail, ArrowUpRight, Cpu, Layers, ShieldCheck, Sparkles, Download } from "lucide-react";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/Icons";
+import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { projects, skills, personalInfo } from "@/lib/data";
 
 export default function HomePage() {
@@ -73,15 +73,7 @@ export default function HomePage() {
             >
               <LinkedinIcon size={18} />
             </a>
-            <a
-              href={personalInfo.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter / X"
-              className="p-3 rounded-2xl border border-white/10 bg-white/[0.03] text-zinc-400 hover:text-emerald-400 hover:border-emerald-500/40 hover:bg-emerald-500/10 hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-200"
-            >
-              <TwitterIcon size={18} />
-            </a>
+
             <a
               href={`mailto:${personalInfo.email}`}
               aria-label="Email"

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Mail, ArrowUpRight } from "lucide-react";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "./Icons";
+import { GithubIcon, LinkedinIcon } from "./Icons";
 import { personalInfo, navLinks } from "@/lib/data";
 
 export default function Footer() {
@@ -43,15 +43,7 @@ export default function Footer() {
             >
               <LinkedinIcon size={18} />
             </a>
-            <a
-              href={personalInfo.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter / X"
-              className="p-2.5 rounded-lg border border-white/[0.08] bg-white/[0.02] text-zinc-400 hover:text-emerald-400 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all"
-            >
-              <TwitterIcon size={18} />
-            </a>
+
             <a
               href={`mailto:${personalInfo.email}`}
               aria-label="Email"

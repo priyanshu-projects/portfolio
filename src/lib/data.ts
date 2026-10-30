@@ -24,7 +24,6 @@ export const personalInfo = {
   location: "Delhi, India",
   github: "https://github.com/priyanshu-projects",
   linkedin: "https://www.linkedin.com/in/priyanshu-gupta-7a13a7251/",
-  twitter: "https://x.com/priyanshu_g7",
   portfolioUrl: "https://priyanshu-projects.github.io/portfolio/",
   resumeUrl: "https://priyanshu-projects.github.io/portfolio/resume.pdf",
   status: "Available for engineering roles & select contracts",
