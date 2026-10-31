@@ -170,7 +170,7 @@ export const projects: Project[] = [
       { val: "DUCSS", label: "society led" },
     ],
     githubUrl: "https://github.com/priyanshu-projects/Sankalan-2026",
-    liveUrl: "https://priyanshu-projects.github.io/portfolio/projects/sankalan-2026/",
+    liveUrl: "https://sankalan.ducss.tech/",
     gradient: "from-emerald-500/20 via-cyan-500/10 to-transparent",
   },
 ];
