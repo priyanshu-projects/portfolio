@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 import { projects, personalInfo } from "@/lib/data";
 
@@ -60,27 +60,33 @@ export default function ProjectsPage() {
                       {project.category}
                     </span>
                     <span className="w-1 h-1 rounded-full bg-zinc-600" />
-                    <div className="flex gap-2">
-                      {project.githubUrl && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-zinc-400 hover:text-emerald-400 transition-colors p-1"
-                          aria-label="GitHub Repository"
-                        >
-                          <GithubIcon size={16} />
-                        </a>
-                      )}
+                    <div className="flex items-center gap-2 flex-wrap">
                       {project.liveUrl && (
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-zinc-400 hover:text-emerald-400 transition-colors p-1"
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 hover:bg-emerald-500/25 hover:border-emerald-400 hover:text-white transition-all shadow-[0_0_12px_rgba(16,185,129,0.15)] hover:scale-105 group/live"
                           aria-label="Live Demo"
                         >
-                          <ArrowUpRight size={16} />
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                          </span>
+                          <span>Live Demo</span>
+                          <ExternalLink size={12} className="group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5 transition-transform" />
+                        </a>
+                      )}
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono text-zinc-400 hover:text-white bg-white/[0.04] border border-white/10 hover:border-white/20 hover:bg-white/[0.08] transition-all"
+                          aria-label="GitHub Repository"
+                        >
+                          <GithubIcon size={13} />
+                          <span>Code</span>
                         </a>
                       )}
                     </div>
@@ -131,12 +137,27 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* CTA Action button */}
-                <div className="shrink-0 flex lg:flex-col items-center justify-end">
+                <div className="shrink-0 flex sm:flex-row lg:flex-col items-stretch lg:items-end justify-end gap-2.5">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary !text-xs !py-2.5 !px-4 font-mono group/live inline-flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.2)]"
+                    >
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-300"></span>
+                      </span>
+                      <span>Live Demo</span>
+                      <ExternalLink size={13} className="group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5 transition-transform" />
+                    </a>
+                  )}
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="btn-secondary !text-xs !py-2.5 !px-5 font-mono group/btn"
+                    className="btn-secondary !text-xs !py-2.5 !px-4 font-mono group/btn inline-flex items-center justify-center gap-1.5"
                   >
-                    Deep Dive Specs
+                    <span>Deep Dive Specs</span>
                     <ArrowRight
                       size={13}
                       className="group-hover/btn:translate-x-1 transition-transform"

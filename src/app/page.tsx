@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ChevronDown, Mail, ArrowUpRight, Cpu, Layers, ShieldCheck, Sparkles, Download } from "lucide-react";
+import { ArrowRight, ChevronDown, Mail, ArrowUpRight, Cpu, Layers, ShieldCheck, Sparkles, Download, ExternalLink } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { projects, skills, personalInfo } from "@/lib/data";
 
@@ -171,6 +171,22 @@ export default function HomePage() {
                       0{idx + 1} // {project.category}
                     </span>
                     <div className="flex items-center gap-2">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Live Demo"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono font-medium text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 hover:bg-emerald-500/25 hover:border-emerald-400 hover:text-white transition-all shadow-[0_0_12px_rgba(16,185,129,0.15)] hover:scale-105 group/live"
+                        >
+                          <span className="relative flex h-1.5 w-1.5">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                          </span>
+                          <span>Live Demo</span>
+                          <ExternalLink size={11} className="group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5 transition-transform" />
+                        </a>
+                      )}
                       {project.githubUrl && (
                         <a
                           href={project.githubUrl}
@@ -180,17 +196,6 @@ export default function HomePage() {
                           className="text-zinc-500 hover:text-emerald-400 hover:scale-110 transition-all p-1"
                         >
                           <GithubIcon size={16} />
-                        </a>
-                      )}
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="Live Demo"
-                          className="text-zinc-500 hover:text-emerald-400 hover:scale-110 transition-all p-1"
-                        >
-                          <ArrowUpRight size={16} />
                         </a>
                       )}
                     </div>
